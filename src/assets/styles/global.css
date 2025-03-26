@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'plusjakarta';
+  src: url('../assets/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+}
+
+.text-heading {
+  font-family: 'plusjakarta', sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.input-field {
+    height: 48px;
+    width: 412px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }  
