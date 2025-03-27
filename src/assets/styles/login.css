@@ -1,17 +1,6 @@
-.register-text {
-    font-family: 'plusjakarta', sans-serif;
-    gap: 6px;
-}
 
 .register-container {
   user-select: none;
-}
-
-.login-button {
-  height: 44px;
-  width: 412px;
-  background-color: #04A51E;
-  border-radius: 50px;
 }
 
 .forgotpassword-text {

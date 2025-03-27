@@ -1,10 +1,4 @@
-@font-face {
-    font-family: 'plusjakarta';
-    src: url('../assets/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
-  }
-
 .register-heading {
-    font-family: 'plusjakarta', sans-serif;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -12,14 +6,6 @@
 
 .register-container {
   user-select: none;
-}
-
-.register-button {
-  height: 44px;
-  width: 412px;
-  background-color: #04A51E;
-  border-radius: 50px;
-  margin-top: 10px;
 }
 
 .register-text {

@@ -49,7 +49,7 @@ const Register: React.FC = () => {
             onChange={handleChange}
           />
         </div>
-        <button className='resetpassword-button' type="submit">Create New Password</button>
+        <button className='decoration-button' type="submit">Create New Password</button>
       </form>
     </div>
   );
