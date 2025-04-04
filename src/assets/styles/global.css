@@ -12,6 +12,10 @@
   justify-content: center;
 }
 
+.container-black {
+  background-color: #242424
+}
+
 .decoration-button {
   height: 44px;
   width: 412px;

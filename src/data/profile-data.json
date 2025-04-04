@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "username": "User1",
+      "userHandle": "user1",
+      "content": "Mak ijah pengen ke mekah jalur bawah tanah.",
+      "timestamp": "1h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100,
+      "imageUrl": null
+    },
+    {
+      "id": 2,
+      "username": "User2",
+      "userHandle": "user2",
+      "content": "Mamang racing tak pernah gentar",
+      "timestamp": "2h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100,
+      "imageUrl": "https://github.com/shadcn.png"
+    },
+    {
+      "id": 2,
+      "username": "User3",
+      "userHandle": "user3",
+      "content": "Lebaran dengan meriam bazoka",
+      "timestamp": "3h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100,
+      "imageUrl": null
+    }
+  ]
+}

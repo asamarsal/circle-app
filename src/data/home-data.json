@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "username": "User1",
+      "userHandle": "user1",
+      "content": "Mak ijah pengen ke mekah jalur bawah tanah.",
+      "timestamp": "1h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100
+    },
+    {
+      "id": 2,
+      "username": "User2",
+      "userHandle": "user2",
+      "content": "Takbiran ya balapan",
+      "timestamp": "2h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100
+    },
+    {
+      "id": 2,
+      "username": "User3",
+      "userHandle": "user3",
+      "content": "Lebaran dengan meriam bazoka",
+      "timestamp": "3h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100
+    },
+    {
+      "id": 2,
+      "username": "User4",
+      "userHandle": "user4",
+      "content": "Rompi anti peluru laris manis dibeli",
+      "timestamp": "4h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100
+    },
+    {
+      "id": 2,
+      "username": "User5",
+      "userHandle": "user5",
+      "content": "Tukang kayu jadi astronot ke bulan",
+      "timestamp": "5h",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "likecount": 100
+    }
+  ]
+}
