@@ -69,6 +69,7 @@ const Dashboard: React.FC = () => {
 
     const [likedReplies, setLikedReplies] = useState<{ [key: number]: boolean }>({});
 
+    const API_URL = import.meta.env.VITE_API_BASE_URL;
 
     //Data User yang Login
     const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -208,7 +209,7 @@ const Dashboard: React.FC = () => {
                             username: thread.user.name,
                             userHandle: thread.user.username,
                             content: thread.content,
-                            image: thread.image ? `http://localhost:3000${thread.image}` : null,
+                            image: thread.image ? `${API_URL}${thread.image}` : null,
                             timestamp: formatTimestamp(thread.created_at),
                             avatarUrl: thread.user.profile_picture || "https://picsum.photos/200/?random=2",
                             likecount: thread.likes,
@@ -240,7 +241,7 @@ const Dashboard: React.FC = () => {
     };
 
     useEffect(() => {
-        const newSocket = io('http://localhost:3000');
+        const newSocket = io('${API_URL}');
         setSocket(newSocket);
 
         // Connect > Online
@@ -276,7 +277,7 @@ const Dashboard: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        const socket = io('http://localhost:3000');
+        const socket = io('${API_URL}');
         setSocket(socket);
 
         // Listen for new threads
@@ -286,7 +287,7 @@ const Dashboard: React.FC = () => {
                 username: thread.user.name,
                 userHandle: thread.user.username,
                 content: thread.content,
-                image: thread.image ? `http://localhost:3000${thread.image}` : null,
+                image: thread.image ? `${API_URL}${thread.image}` : null,
                 timestamp: formatTimestamp(thread.created_at),
                 avatarUrl: thread.user.profile_picture || "https://picsum.photos/200/?random=2",
                 likecount: thread.likes,
@@ -319,7 +320,7 @@ const Dashboard: React.FC = () => {
                 const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
                 
                 // Fetch replies
-                const res = await fetch(`http://localhost:3000/api/v1/reply?thread_id=${selectedPost.id}`, {
+                const res = await fetch(`${API_URL}/api/v1/reply?thread_id=${selectedPost.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const data = await res.json();
@@ -332,7 +333,7 @@ const Dashboard: React.FC = () => {
                 // Check like status for each reply
                 const repliesWithLikeStatus = await Promise.all(sortedReplies.map(async (reply: any) => {
                     // Fetch like status for each reply
-                    const likeResponse = await fetch(`http://localhost:3000/api/v1/like?thread_id=${reply.id}`, {
+                    const likeResponse = await fetch(`${API_URL}/api/v1/like?thread_id=${reply.id}`, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -392,7 +393,7 @@ const Dashboard: React.FC = () => {
     const fetchProfile = async () => {
         try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:3000/api/v1/profile', {
+        const response = await fetch('${API_URL}/api/v1/profile', {
             headers: { 
             Authorization: `Bearer ${token}` 
             }
@@ -422,7 +423,7 @@ const Dashboard: React.FC = () => {
     }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/v1/profile', {
+            const response = await fetch('${API_URL}/api/v1/profile', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -446,7 +447,7 @@ const Dashboard: React.FC = () => {
     const checkLikeStatus = async (threadId: number) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:3000/api/v1/like?thread_id=${threadId}`, {
+            const response = await fetch(`${API_URL}/api/v1/like?thread_id=${threadId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -476,7 +477,7 @@ const Dashboard: React.FC = () => {
         const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
         
         // First check if post is already liked
-        const checkLikeResponse = await fetch(`http://localhost:3000/api/v1/like?thread_id=${threadId}`, {
+        const checkLikeResponse = await fetch(`${API_URL}/api/v1/like?thread_id=${threadId}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -490,7 +491,7 @@ const Dashboard: React.FC = () => {
         // Toggle like based on current state
         if (isCurrentlyLiked) {
         // Unlike - DELETE request
-        const response = await fetch(`http://localhost:3000/api/v1/like/${threadId}`, {
+        const response = await fetch(`${API_URL}/api/v1/like/${threadId}`, {
             method: 'DELETE',
             headers: {
             Authorization: `Bearer ${token}`
@@ -512,7 +513,7 @@ const Dashboard: React.FC = () => {
         }
         } else {
         // Like - POST request
-        const response = await fetch('http://localhost:3000/api/v1/like', {
+        const response = await fetch('${API_URL}/api/v1/like', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -550,7 +551,7 @@ const Dashboard: React.FC = () => {
             const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
             
             // Check current like status
-            const checkLikeResponse = await fetch(`http://localhost:3000/api/v1/like?thread_id=${replyId}`, {
+            const checkLikeResponse = await fetch(`${API_URL}/api/v1/like?thread_id=${replyId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -563,7 +564,7 @@ const Dashboard: React.FC = () => {
 
             if (isCurrentlyLiked) {
                 // Unlike
-                const response = await fetch(`http://localhost:3000/api/v1/like/${replyId}`, {
+                const response = await fetch(`${API_URL}/api/v1/like/${replyId}`, {
                     method: 'DELETE',
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -585,7 +586,7 @@ const Dashboard: React.FC = () => {
                 }
             } else {
                 // Like
-                const response = await fetch('http://localhost:3000/api/v1/like', {
+                const response = await fetch('${API_URL}/api/v1/like', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -806,7 +807,7 @@ const Dashboard: React.FC = () => {
                                                 onClick={() => setIsImagePostExpandModalOpen(false)}
                                             >
                                                 <img
-                                                    src={selectedPost.image.startsWith('http') ? selectedPost.image : `http://localhost:3000${selectedPost.image}`}
+                                                    src={selectedPost.image.startsWith('http') ? selectedPost.image : `${API_URL}${selectedPost.image}`}
                                                     alt="Large Post Image"
                                                     className="max-w-2xl max-h-[40vh] rounded-lg shadow-lg"
                                                 />

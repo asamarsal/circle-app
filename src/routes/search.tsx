@@ -58,6 +58,8 @@ const Search: React.FC = () => {
 
     const loggedInUserId = JSON.parse(localStorage.getItem('user') || '{}').user_id;
 
+    const API_URL = import.meta.env.VITE_API_BASE_URL;
+
     useEffect(() => {
     if (searchResults.length > 0) {
         fetchFollowStatus();
@@ -70,7 +72,7 @@ const Search: React.FC = () => {
                 setIsSearching(true);
                 try {
                     const token = localStorage.getItem('token');
-                    const response = await fetch(`http://localhost:3000/api/v1/search?keyword=${searchTerm}`, {
+                    const response = await fetch(`${API_URL}/api/v1/search?keyword=${searchTerm}`, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -96,7 +98,7 @@ const Search: React.FC = () => {
     }, [searchTerm]);
 
     useEffect(() => {
-            const newSocket = io('http://localhost:3000');
+            const newSocket = io(`${API_URL}`);
             setSocket(newSocket);
     
             // Connect > Online
@@ -137,7 +139,7 @@ const Search: React.FC = () => {
             const user = searchResults.find(u => u.id === userId.toString());
             const isFollowing = user?.is_following || false;
             
-            const response = await fetch('http://localhost:3000/api/v1/follows', {
+            const response = await fetch(`${API_URL}/api/v1/follows`, {
                 method: isFollowing ? 'DELETE' : 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -172,7 +174,7 @@ const Search: React.FC = () => {
     const fetchFollowings = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/v1/follows?type=following', {
+            const response = await fetch(`${API_URL}/api/v1/follows?type=following`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -200,7 +202,7 @@ const Search: React.FC = () => {
     const fetchFollowStatus = async () => {
     try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:3000/api/v1/follows?type=following', {
+        const response = await fetch(`${API_URL}/api/v1/follows?type=following`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -231,7 +233,7 @@ const handleProfileUpdate = async (updatedData: {
     }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/v1/profile', {
+            const response = await fetch(`${API_URL}/api/v1/profile`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

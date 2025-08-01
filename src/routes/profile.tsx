@@ -249,7 +249,10 @@ const Dashboard: React.FC = () => {
                                     </button>
                                 </div>
                                 <div className="flex flex-column">
-                                    <PostcardEditprofile username={''} userHandle={''} content={''} />
+                                    <PostcardEditprofile 
+                                        currentProfile={profile}
+                                        onSave={handleProfileUpdate}
+                                    />
                                 </div>
                             </div>
                         </>

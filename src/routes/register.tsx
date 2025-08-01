@@ -17,7 +17,7 @@ const Register: React.FC = () => {
     email: '',
     password: ''
   });
-  const [error, setError] = useState<string>('');
+  // const [error, setError] = useState<string>('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

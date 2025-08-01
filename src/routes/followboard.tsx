@@ -13,9 +13,9 @@ import {
 import { 
     Card, 
     CardContent, 
-    CardDescription,
-    CardHeader,
-    CardTitle, 
+    // CardDescription,
+    // CardHeader,
+    // CardTitle, 
 } from "@/components/ui/card";
 
 import { Button } from"@/components/ui/button";
@@ -23,7 +23,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import PostcardSuggested from "@/components/ui/postcard/postcard-suggested";
 import PostcardPosting from "@/components/ui/postcard/postcard-posting";
 
-import PostcardEditprofile from "@/components/ui/postcard/postcard-editprofile";
+// import PostcardEditprofile from "@/components/ui/postcard/postcard-editprofile";
 import PostcardFollowers from "@/components/ui/postcard/postcard-followboard";
 
 // import postsFollowingdata from '@/data/following-data.json';
@@ -31,11 +31,11 @@ import PostcardFollowers from "@/components/ui/postcard/postcard-followboard";
 // import { Post } from '@/types/home';
 import postsSuggesteddata from '@/data/suggested-data.json';
 
-import PostcardFollowing from "@/components/ui/postcard/postcard-followboard";
+// import PostcardFollowing from "@/components/ui/postcard/postcard-followboard";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+// import { Dialog, DialogContent } from "@/components/ui/dialog"
+// import { Input } from "@/components/ui/input"
+// import { Label } from "@/components/ui/label"
 
 import {
   Tabs,
@@ -48,6 +48,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/lib/redux/store';
 
 import { setProfile } from '@/lib/redux/profileSlice';
+import { toast } from 'sonner';
 
 interface Follower {
   id: string;
@@ -65,27 +66,30 @@ interface Following {
   is_following: boolean;
 }
 
-interface SuggestedData {
-  posts: Array<{
-    id: number;
-    username: string;
-    userHandle: string;
-    avatarUrl: string;
-  }>;
-}
+// interface SuggestedData {
+//   posts: Array<{
+//     id: number;
+//     username: string;
+//     userHandle: string;
+//     avatarUrl: string;
+//   }>;
+// }
 
 const Followboard: React.FC = () => {
     const navigate = useNavigate();
-    const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
-    const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
+    const [followingState] = useState<{ [key: number]: boolean }>({});
+    // const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
+    const [ setIsEditprofileOpen] = useState(false);
+    // const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
-    const [isAvatarOpen, setIsAvatarOpen] = useState(false);
+    const [setIsAvatarOpen] = useState(false);
+    // const [isAvatarOpen, setIsAvatarOpen] = useState(false);
 
     const [followers, setFollowers] = useState<Follower[]>([]);
     const [followings, setFollowings] = useState<Following[]>([]);
 
-    const [followersLoading, setFollowersLoading] = useState(false);
-    const [followingLoading, setFollowingLoading] = useState(false);
+    // const [followersLoading, setFollowersLoading] = useState(false);
+    // const [followingLoading, setFollowingLoading] = useState(false);
 
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string>('');
@@ -93,11 +97,13 @@ const Followboard: React.FC = () => {
     const dispatch = useDispatch();
     const profile = useSelector((state: RootState) => state.profile);
 
+    const API_URL = import.meta.env.VITE_API_BASE_URL;
+
     useEffect(() => {
         const fetchProfile = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:3000/api/v1/profile', {
+                const response = await fetch(`${API_URL}/api/v1/profile`, {
                     headers: { 
                         Authorization: `Bearer ${token}` 
                     }
@@ -123,7 +129,7 @@ const Followboard: React.FC = () => {
                               (followings?.find(f => f.id === userId.toString())?.is_following) || 
                               false;
             
-            const response = await fetch('http://localhost:3000/api/v1/follows', {
+            const response = await fetch(`${API_URL}/api/v1/follows`, {
                 method: isFollowing ? 'DELETE' : 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -167,7 +173,7 @@ const Followboard: React.FC = () => {
         setIsLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/v1/follows?type=followers', {
+            const response = await fetch(`${API_URL}/api/v1/follows?type=followers`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -191,7 +197,7 @@ const Followboard: React.FC = () => {
         setIsLoading(true);
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3000/api/v1/follows?type=following', {
+            const response = await fetch(`${API_URL}/api/v1/follows?type=following`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -257,7 +263,7 @@ const Followboard: React.FC = () => {
             </NavLink>
             <button className='bg-[#04A51E] hover:bg-[#008616] text-white w-full py-2 px-4 rounded-full mt-10 cursor-pointer' onClick={() => setIsPostinganOpen(true)}>Create Post</button>
             <NavLink 
-                to="/#" onClick={handleLogout} className="flex items-center gap-2 text-white ml-2 mt-auto cursor-pointer hover:text-gray-300 user mb-4 mt-8">
+                to="/#" onClick={handleLogout} className="flex items-center gap-2 text-white ml-2 mt-auto cursor-pointer hover:text-gray-300 user mb-4">
                 <LogOut size={24} strokeWidth={1} /> 
                 <p>Logout</p>
             </NavLink>
@@ -394,17 +400,17 @@ const Followboard: React.FC = () => {
                 <div className="-mt-4 h-14 w-full bg-gradient-to-r from-green-200 via-green-400 to-green-600 rounded-lg" />
                 
                 <div className="relative -mt-8 flex items-center px-4">
-                    <Avatar className="w-16 h-16 border-4 border-black cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setIsAvatarOpen(true)}>
+                    {/* <Avatar className="w-16 h-16 border-4 border-black cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setIsAvatarOpen(true)}>
                         <AvatarImage src={profile.avatar} />
                         <AvatarFallback>{profile.name?.[0]}</AvatarFallback>
-                    </Avatar>
+                    </Avatar> */}
                     
-                    <Button
+                    {/* <Button
                         variant="outline"
                         className="-mr-4 ml-auto bg-transparent border-white text-white rounded-full cursor-pointer" 
                         onClick={() => setIsEditprofileOpen(true)}>
                         Edit Profile
-                    </Button>
+                    </Button> */}
                 </div>
 
                 <CardContent>
