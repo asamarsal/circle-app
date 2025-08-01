@@ -3,24 +3,42 @@ import iconCircle from '../assets/images/circle.png';
 import '../assets/styles/register.css';
 import '../assets/styles/global.css';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-interface RegisterFormData {
-  fullname: string;
-  email: string;
-  password: string;
-}
+import { APISemuanya } from '@/lib/api';
+import { RegisterFormData } from '@/types/user';
+
 
 const Register: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<RegisterFormData>({
-    fullname: '',
+    full_name: '',
+    username: '',
     email: '',
     password: ''
   });
+  const [error, setError] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setError('');
+    
+    try {
+      const response = await APISemuanya.auth.register({
+        full_name: formData.full_name,
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      });
+      
+      if (response.data.code === 200) {
+
+        navigate('/login');
+      }
+    } catch (error: any) {
+      console.error('Register failed:', error);
+      setError(error.response?.data?.message || 'Registration failed. Please try again.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,9 +58,19 @@ const Register: React.FC = () => {
             <input
               className="input-field bg-white mt-5"
               type="text"
-              name="fullname"
+              name="full_name"
               placeholder="Full Name*"
-              value={formData.fullname}
+              value={formData.full_name}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <input
+              className="input-field bg-white mt-5"
+              type="text"
+              name="username"
+              placeholder="Username*"
+              value={formData.username}
               onChange={handleChange}
             />
           </div>

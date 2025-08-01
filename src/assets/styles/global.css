@@ -60,3 +60,16 @@
 :root {  
   background-color: #242424;
 }
+
+.tabs-trigger[data-state="active"] {
+  border-bottom: 2px solid #04A51E !important;
+  color: white !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  font-weight: bold !important;
+}
+
+.tabs-trigger {
+  border-bottom: 4px solid transparent;
+  border-radius: 0;
+}

@@ -4,31 +4,19 @@
       "id": 1,
       "username": "Ujang Racing",
       "userHandle": "@ujangujangx",
-      "avatarUrl": "https://github.com/shadcn.png"
+      "avatarUrl": "https://picsum.photos/200/?random=1"
     },
     {
       "id": 2,
       "username": "Maman Gasing",
       "userHandle": "@mamankerenxyz",
-      "avatarUrl": "https://github.com/shadcn.png"
+      "avatarUrl": "https://picsum.photos/200/?random=2"
     },
     {
       "id": 3,
       "username": "Ucup Sempol",
       "userHandle": "@ucuptakkuncup",
-      "avatarUrl": "https://github.com/shadcn.png"
-    },
-    {
-      "id": 4,
-      "username": "Wahyu Perkedel",
-      "userHandle": "@wahyudeldel",
-      "avatarUrl": "https://github.com/shadcn.png"
-    },
-    {
-      "id": 5,
-      "username": "Zidan Basreng",
-      "userHandle": "@zidanreng",
-      "avatarUrl": "https://github.com/shadcn.png"
+      "avatarUrl": "https://picsum.photos/200/?random=3"
     }
   ]
 }

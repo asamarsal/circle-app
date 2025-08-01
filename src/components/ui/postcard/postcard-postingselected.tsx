@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import { PostCardProps } from '@/types/home';
 
-const PostcardHome: React.FC<PostCardProps> = ({ 
+const PostcardPostingselected: React.FC<PostCardProps> = ({ 
   username, 
   userHandle, 
   content, 
@@ -46,22 +46,21 @@ const PostcardHome: React.FC<PostCardProps> = ({
           />
           <AvatarFallback>{username[0]}</AvatarFallback>
         </Avatar>
-        <div className="flex flex-col ml-4 flex-1">
+        <div className="flex flex-col ml-4 flex-1 items-start">
           <div className="flex items-center gap-2">
             <span className="font-medium text-white hover:text-gray-300 cursor-pointer">
               {username}
             </span>
             <span className="text-gray-500">@{userHandle}</span>
-            <span className="text-gray-500">· {timestamp}</span>
           </div>
           <p className="text-white mt-1 text-left">{content}</p>
 
           {image && (
-          <div className="mt-2">
+          <div className="mt-2 flex items-start">
             <img
               src={getImageUrl(image)}
               alt={`Posted by ${username}`}
-              className="max-h-96 w-full object-contain rounded-lg"
+              className="max-h-60 w-full object-contain rounded-lg"
               style={{ maxWidth: '100%', height: 'auto' }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
@@ -77,28 +76,33 @@ const PostcardHome: React.FC<PostCardProps> = ({
             </div>
           )} */}
 
-          <div className="flex items-center gap-4 text-white mt-2">
-          <div 
-            className="flex flex-row items-center gap-2 cursor-pointer"
-            onClick={onLikeClick}
-          >
-            <Heart 
-              size={18} 
-              strokeWidth={2} 
-              className={`transition-colors ${
-                isLiked 
-                  ? 'text-red-500 fill-red-500' 
-                  : 'text-white hover:text-red-500'
-              }`}
-            />
-            <span className={isLiked ? 'text-red-500' : 'text-white'}>
-              {likecount}
-            </span>
-          </div>
-          <div className="flex flex-row items-center gap-2 cursor-pointer">
-              <MessageSquareText size={18} strokeWidth={2} />
-              <span className="text-white">{likecount}</span>
-          </div>
+          <div className="flex flex-col gap-4 text-white mt-2">
+            <div className="flex">
+                <span className="align-start text-gray-500">{timestamp}</span>
+            </div>
+            <div className="flex flex-row gap-4">
+              <div 
+                className="flex flex-row items-center gap-2 cursor-pointer"
+                onClick={onLikeClick}
+              >
+                <Heart 
+                  size={18} 
+                  strokeWidth={2} 
+                  className={`transition-colors ${
+                    isLiked 
+                      ? 'text-red-500 fill-red-500' 
+                      : 'text-white hover:text-red-500'
+                  }`}
+                />
+                <span className={isLiked ? 'text-red-500' : 'text-white'}>
+                  {likecount}
+                </span>
+              </div>
+              <div className="flex flex-row items-center gap-2 cursor-pointer">
+                <MessageSquareText size={18} strokeWidth={2} />
+                <span className="text-white">{likecount}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -106,4 +110,4 @@ const PostcardHome: React.FC<PostCardProps> = ({
   );
 };
 
-export default PostcardHome;
+export default PostcardPostingselected;

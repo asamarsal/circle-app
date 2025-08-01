@@ -2,12 +2,12 @@
   "posts": [
     {
       "id": 1,
-      "username": "User1",
-      "userHandle": "user1",
+      "username": "Asa",
+      "userHandle": "Asa Marsal",
       "content": "Mak ijah pengen ke mekah jalur bawah tanah.",
       "timestamp": "1h",
-      "avatarUrl": "https://github.com/shadcn.png",
-      "likecount": 100
+      "avatarUrl": "https://picsum.photos/200/?random=1",
+      "likecount": 21
     },
     {
       "id": 2,
@@ -15,35 +15,35 @@
       "userHandle": "user2",
       "content": "Takbiran ya balapan",
       "timestamp": "2h",
-      "avatarUrl": "https://github.com/shadcn.png",
-      "likecount": 100
+      "avatarUrl": "https://picsum.photos/200/?random=2",
+      "likecount": 37
     },
     {
-      "id": 2,
+      "id": 3,
       "username": "User3",
       "userHandle": "user3",
       "content": "Lebaran dengan meriam bazoka",
       "timestamp": "3h",
-      "avatarUrl": "https://github.com/shadcn.png",
-      "likecount": 100
+      "avatarUrl": "https://picsum.photos/200/?random=3",
+      "likecount": 49
     },
     {
-      "id": 2,
+      "id": 4,
       "username": "User4",
       "userHandle": "user4",
       "content": "Rompi anti peluru laris manis dibeli",
       "timestamp": "4h",
-      "avatarUrl": "https://github.com/shadcn.png",
-      "likecount": 100
+      "avatarUrl": "https://picsum.photos/200/?random=4",
+      "likecount": 25
     },
     {
-      "id": 2,
+      "id": 5,
       "username": "User5",
       "userHandle": "user5",
       "content": "Tukang kayu jadi astronot ke bulan",
       "timestamp": "5h",
-      "avatarUrl": "https://github.com/shadcn.png",
-      "likecount": 100
+      "avatarUrl": "https://picsum.photos/200/?random=5",
+      "likecount": 43
     }
   ]
 }

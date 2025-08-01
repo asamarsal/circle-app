@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "username": "Doni Gacor",
+      "userHandle": "@donigacor123",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Santai dulu sambil ngopi!"
+    },
+    {
+      "id": 2,
+      "username": "Siti Kustian",
+      "userHandle": "@siticantik",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Hari ini harus produktif!"
+    },
+    {
+      "id": 3,
+      "username": "Bagus Pratama",
+      "userHandle": "@bagusprogamer",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Gaming dulu sebelum kerja!"
+    },
+    {
+      "id": 4,
+      "username": "Lina Sutrisna",
+      "userHandle": "@linafashion",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Lagi cari outfit buat besok"
+    },
+    {
+      "id": 5,
+      "username": "Andi Sablon",
+      "userHandle": "@andisablon123",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Jualan kaos custom, DM aja!"
+    },
+    {
+      "id": 6,
+      "username": "Rizky Mancing",
+      "userHandle": "@mancingmania",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Strike babon lagi, mantap!"
+    }
+  ]
+}

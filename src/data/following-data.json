@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "username": "Jabrik Thunder",
+      "userHandle": "@jabrikthunder",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Gaspol terus tanpa rem!"
+    },
+    {
+      "id": 2,
+      "username": "Mbak Sastro",
+      "userHandle": "@mbaksastro",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Ngopi dulu, masalah belakangan!"
+    },
+    {
+      "id": 3,
+      "username": "Ucup Ngelag",
+      "userHandle": "@ucupngelag",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Jaringan ngelag, hati-hati emosi!"
+    },
+    {
+      "id": 4,
+      "username": "Dudung Samurai",
+      "userHandle": "@dudungslice",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Tajam dalam berpikir dan bertindak!"
+    },
+    {
+      "id": 5,
+      "username": "Enyak Gorengan",
+      "userHandle": "@enyaklegend",
+      "avatarUrl": "https://github.com/shadcn.png",
+      "profileStatus": "Promo bakwan 5k dapet 6!"
+    }
+  ]
+}

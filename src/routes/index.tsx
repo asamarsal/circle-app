@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Register from "./register";
 import Login from "./login";
 import ForgotPassword from "./forgotpassword";
@@ -7,11 +7,26 @@ import Dashboard from "./dashboard";
 import Profile from "./profile"
 import Search from "./search"
 import Followboard from "./followboard"
+import { ReactNode } from 'react';
+
+interface PrivateRouteProps {
+    children: ReactNode;
+}
+
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+        return <Navigate to="/login" replace />;
+    }
+
+    return <>{children}</>;
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Login, // Halaman default ke Login
+    Component: Login,
   },
   {
     path: "/register",
@@ -31,11 +46,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    Component: Dashboard,
+    element: (
+      <PrivateRoute>
+          <Dashboard />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/profile",
-    Component: Profile,
+    element: (
+      <PrivateRoute>
+         <Profile />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/search",

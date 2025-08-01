@@ -27,12 +27,37 @@ import PostcardProfile from "@/components/ui/postcard/postcard-profile";
 import PostcardEditprofile from "@/components/ui/postcard/postcard-editprofile";
 import PostcardPosting from "@/components/ui/postcard/postcard-posting";
 import { Dialog, DialogContent } from "@/components/ui/dialog"
+import Typed from 'typed.js';
 
 const Dashboard: React.FC = () => {
     const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
     const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
     const [isAvatarOpen, setIsAvatarOpen] = useState(false);
+
+    const devby = React.useRef(null);
+    const powby = React.useRef(null);
+
+    React.useEffect(() => {
+        const typed = new Typed(devby.current, {
+            strings: ['Developed by Asa Marsal |'],
+            typeSpeed: 50,
+            loop: false,
+            showCursor: false,
+        });
+
+        const typed2 = new Typed(powby.current, {
+            strings: ['Powered by Dumbways Indonesia'],
+            typeSpeed: 50,
+            loop: false,
+            showCursor: false,
+        });
+
+        return () => {
+            typed.destroy();
+            typed2.destroy();
+        };
+    }, []);
 
     const handleFollowClick = (userId: number) => {
         setFollowingState(prev => ({
@@ -224,7 +249,7 @@ const Dashboard: React.FC = () => {
                                     </button>
                                 </div>
                                 <div className="flex flex-column">
-                                    <PostcardEditprofile />
+                                    <PostcardEditprofile username={''} userHandle={''} content={''} />
                                 </div>
                             </div>
                         </>
@@ -234,7 +259,7 @@ const Dashboard: React.FC = () => {
                 {/* Profile Info */}
                 <div className="flex items-center ml-4">
                     <p className='text-s -ml-2'>
-                        Developed by Asa Marsal |
+                        <span ref={devby}></span>
                     </p>
                     <a 
                         href="https://github.com/asamarsal" 
@@ -247,43 +272,43 @@ const Dashboard: React.FC = () => {
                         />
                     </a>
                     <a 
-                        href="https://github.com/asamarsal" 
-                        target="https://github.com/asamarsal"
+                        href="https://linkedin.com/in/asamarsal" 
+                        target="https://linkedin.com/in/asamarsal"
                         className="ml-2 hover:opacity-80">
                         <img 
                             src={linkedinIcon} 
-                            alt="GitHub"
+                            alt="Linkedin"
                             className="w-6 h-6 brightness-0 invert"
                         />
                     </a>
                     <a 
-                        href="https://github.com/asamarsal" 
-                        target="https://github.com/asamarsal"
+                        href="https://medium.com/@asamarsal" 
+                        target="https://medium.com/@asamarsal"
                         className="ml-2 hover:opacity-80">
                         <img 
                             src={mediumIcon} 
-                            alt="GitHub"
+                            alt="Medium"
                             className="w-6 h-6 brightness-0 invert"
                         />
                     </a>
                     <a 
-                        href="https://github.com/asamarsal" 
-                        target="https://github.com/asamarsal"
+                        href="https://instagram.com/asamarsal" 
+                        target="https://instagram.com/asamarsal"
                         className="ml-2 hover:opacity-80">
                         <img 
                             src={instagramIcon} 
-                            alt="GitHub"
+                            alt="Instagram"
                             className="w-6 h-6 brightness-0 invert"
                         />
                     </a>
                 </div>
                 <div className="flex items-center ml-4 -mt-4">
                     <p className='text-s -ml-2'>
-                        Powered by Dumbways Indonesia 
+                        <span ref={powby}></span>
                     </p>
                     <a 
-                        href="https://github.com/asamarsal" 
-                        target="https://github.com/asamarsal"
+                        href="https://dumbways.id/" 
+                        target="https://dumbways.id/"
                         className="ml-2 hover:opacity-80">
                         <img 
                             src={dumbwaysIcon} 
