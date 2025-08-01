@@ -1,7 +1,7 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 const userisi = JSON.parse(localStorage.getItem('user') || '{}'); 
 

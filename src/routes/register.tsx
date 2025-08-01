@@ -21,7 +21,7 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    // setError('');
     
     try {
       const response = await APISemuanya.auth.register({
@@ -37,7 +37,7 @@ const Register: React.FC = () => {
       }
     } catch (error: any) {
       console.error('Register failed:', error);
-      setError(error.response?.data?.message || 'Registration failed. Please try again.');
+      // setError(error.response?.data?.message || 'Registration failed. Please try again.');
     }
   };
 

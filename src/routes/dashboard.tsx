@@ -8,7 +8,7 @@ import {
     CircleUserRound,
     ImagePlus,
     LogOut,
-    LucideAArrowDown,
+    // LucideAArrowDown,
     LucideCircle,
     LucideArrowLeft,
   } from "lucide-react";
@@ -20,7 +20,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from"@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import PostcardHome from "@/components/ui/postcard/postcard-home";
-import postsHomedata from '@/data/home-data.json';
+// import postsHomedata from '@/data/home-data.json';
 import PostcardSuggested from "@/components/ui/postcard/postcard-suggested";
 import postsSuggesteddata from '@/data/suggested-data.json';
 import PostcardPosting from "@/components/ui/postcard/postcard-posting";
@@ -29,7 +29,7 @@ import PostcardReplyfromuser from "@/components/ui/postcard/postcard-replyfromus
 import PostcardPostingselected from "@/components/ui/postcard/postcard-postingselected";
 import { NavLink, useNavigate } from 'react-router-dom';
 import PostcardEditprofile from "@/components/ui/postcard/postcard-editprofile";
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+// import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { PostCardProps } from '@/types/home';
 import { APISemuanya } from '@/lib/api';
 
@@ -47,9 +47,9 @@ const Dashboard: React.FC = () => {
     const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
     const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
-    const [isAvatarOpen, setIsAvatarOpen] = useState(false);
-    const [isLikeClicked, setisLikeClicked] = useState(false);
-    const [isCommentClicked, setisCommentClicked] = useState(false);
+    const [setIsAvatarOpen] = useState(false);
+    // const [isLikeClicked, setisLikeClicked] = useState(false);
+    const [setisCommentClicked] = useState(false);
     const [threads, setThreads] = useState<PostCardProps[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [content, setContent] = useState('');
@@ -183,7 +183,7 @@ const Dashboard: React.FC = () => {
             console.log('Create response:', response.data);
 
             if (response.data.code === 200) {
-                const threadId = response.data.data.id;
+                // const threadId = response.data.data.id;
 
                 // if (selectedImage) {
                 // setImageProcessingStatus(prev => ({
@@ -331,35 +331,35 @@ const Dashboard: React.FC = () => {
                 );
 
                 // Check like status for each reply
-                const repliesWithLikeStatus = await Promise.all(sortedReplies.map(async (reply: any) => {
-                    // Fetch like status for each reply
-                    const likeResponse = await fetch(`${API_URL}/api/v1/like?thread_id=${reply.id}`, {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    });
-                    const likeData = await likeResponse.json();
+                // const repliesWithLikeStatus = await Promise.all(sortedReplies.map(async (reply: any) => {
+                //     // Fetch like status for each reply
+                //     const likeResponse = await fetch(`${API_URL}/api/v1/like?thread_id=${reply.id}`, {
+                //         headers: {
+                //             Authorization: `Bearer ${token}`
+                //         }
+                //     });
+                //     const likeData = await likeResponse.json();
                     
-                    // Check if current user has liked this reply
-                    const isLiked = likeData.data.like.some(
-                        (like: any) => like.user.id === currentUser.user_id
-                    );
+                //     // Check if current user has liked this reply
+                //     const isLiked = likeData.data.like.some(
+                //         (like: any) => like.user.id === currentUser.user_id
+                //     );
 
-                    // Update liked replies state
-                    setLikedReplies(prev => ({
-                        ...prev,
-                        [reply.id]: isLiked
-                    }));
+                //     // Update liked replies state
+                //     setLikedReplies(prev => ({
+                //         ...prev,
+                //         [reply.id]: isLiked
+                //     }));
 
-                    return {
-                        id: reply.id,
-                        user: reply.user,
-                        content: reply.content,
-                        created_at: reply.created_at,
-                        likes: reply.likes || 0,
-                        is_liked: isLiked
-                    };
-                }));
+                //     return {
+                //         id: reply.id,
+                //         user: reply.user,
+                //         content: reply.content,
+                //         created_at: reply.created_at,
+                //         likes: reply.likes || 0,
+                //         is_liked: isLiked
+                //     };
+                // }));
 
                 setReplies(data.data.replies);
             } catch (err) {

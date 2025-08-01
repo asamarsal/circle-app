@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/card";
 
 import { Button } from"@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+// import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import PostcardSuggested from "@/components/ui/postcard/postcard-suggested";
 import PostcardPosting from "@/components/ui/postcard/postcard-posting";
 
@@ -79,10 +79,10 @@ const Followboard: React.FC = () => {
     const navigate = useNavigate();
     const [followingState] = useState<{ [key: number]: boolean }>({});
     // const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
-    const [ setIsEditprofileOpen] = useState(false);
+    // const [ setIsEditprofileOpen] = useState(false);
     // const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
-    const [setIsAvatarOpen] = useState(false);
+    // const [setIsAvatarOpen] = useState(false);
     // const [isAvatarOpen, setIsAvatarOpen] = useState(false);
 
     const [followers, setFollowers] = useState<Follower[]>([]);

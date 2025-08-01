@@ -3,7 +3,7 @@ import {
     Heart,
     MessageSquareText,
   } from "lucide-react";
-import { useState } from "react";
+// import { useState } from "react";
 
 import { PostCardProps } from '@/types/home';
 

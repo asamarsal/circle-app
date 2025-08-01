@@ -25,7 +25,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog"
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/lib/redux/store';
-import { setProfile, updateProfile } from '@/lib/redux/profileSlice';
+import { updateProfile } from '@/lib/redux/profileSlice';
 import { toast } from 'sonner';
 
 import { io } from 'socket.io-client';
@@ -40,7 +40,7 @@ interface SearchUser {
 
 const Search: React.FC = () => {
     const navigate = useNavigate();
-    const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
+    const [followingState] = useState<{ [key: number]: boolean }>({});
     const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
     const [isAvatarOpen, setIsAvatarOpen] = useState(false);
@@ -51,7 +51,7 @@ const Search: React.FC = () => {
     const [searchError, setSearchError] = useState('');
 
     const [isOnline, setIsOnline] = useState(false);
-    const [socket, setSocket] = useState<any>(null);
+    const [ setSocket] = useState<any>(null);
 
     const profile = useSelector((state: RootState) => state.profile);
     const dispatch = useDispatch();
@@ -171,33 +171,33 @@ const Search: React.FC = () => {
         }
     };
 
-    const fetchFollowings = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const response = await fetch(`${API_URL}/api/v1/follows?type=following`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const data = await response.json();
+    // const fetchFollowings = async () => {
+    //     try {
+    //         const token = localStorage.getItem('token');
+    //         const response = await fetch(`${API_URL}/api/v1/follows?type=following`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`
+    //             }
+    //         });
+    //         const data = await response.json();
 
-            if (data.status === 'success') {
-                // Create a map of following status
-                const followingMap = data.data.following.reduce((acc: {[key: string]: boolean}, user: any) => {
-                    acc[user.id] = true;
-                    return acc;
-                }, {});
+    //         if (data.status === 'success') {
+    //             // Create a map of following status
+    //             const followingMap = data.data.following.reduce((acc: {[key: string]: boolean}, user: any) => {
+    //                 acc[user.id] = true;
+    //                 return acc;
+    //             }, {});
 
-                // Update search results with following status
-                setSearchResults(prev => prev.map(user => ({
-                    ...user,
-                    is_following: followingMap[user.id] || false
-                })));
-            }
-        } catch (error) {
-            console.error('Failed to fetch following status:', error);
-        }
-    };
+    //             // Update search results with following status
+    //             setSearchResults(prev => prev.map(user => ({
+    //                 ...user,
+    //                 is_following: followingMap[user.id] || false
+    //             })));
+    //         }
+    //     } catch (error) {
+    //         console.error('Failed to fetch following status:', error);
+    //     }
+    // };
 
     const fetchFollowStatus = async () => {
     try {
