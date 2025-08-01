@@ -26,7 +26,7 @@ export const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setProfile: (action: PayloadAction<ProfileState>) => {
+    setProfile: (_state, action: PayloadAction<ProfileState>) => {
       return { ...action.payload };
     },
     updateProfile: (state, action: PayloadAction<Partial<ProfileState>>) => {

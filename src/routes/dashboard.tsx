@@ -877,7 +877,7 @@ const Dashboard: React.FC = () => {
             <div className="-mt-4 h-14 w-full bg-gradient-to-r from-green-200 via-green-400 to-green-600 rounded-lg" />
             
             <div className="relative -mt-8 flex items-center px-4">
-                <Avatar className="w-16 h-16 border-4 border-black cursor-pointer hover:opacity-90 transition-opacity" onClick={() => setIsAvatarOpen(true)}>
+                <Avatar className="w-16 h-16 border-4 border-black cursor-pointer hover:opacity-90 transition-opacity">
                 <AvatarImage src={profile.avatar} />
                 <AvatarFallback>{profile.name?.[0]}</AvatarFallback>
                 </Avatar>
