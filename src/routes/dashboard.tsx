@@ -49,7 +49,7 @@ const Dashboard: React.FC = () => {
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
     const [setIsAvatarOpen] = useState(false);
     // const [isLikeClicked, setisLikeClicked] = useState(false);
-    const [setisCommentClicked] = useState(false);
+    // const [setisCommentClicked] = useState(false);
     const [threads, setThreads] = useState<PostCardProps[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [content, setContent] = useState('');
@@ -317,7 +317,7 @@ const Dashboard: React.FC = () => {
         const fetchReplies = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+                // const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
                 
                 // Fetch replies
                 const res = await fetch(`${API_URL}/api/v1/reply?thread_id=${selectedPost.id}`, {
@@ -326,9 +326,9 @@ const Dashboard: React.FC = () => {
                 const data = await res.json();
                 
                 // Sort replies by date
-                const sortedReplies = data.data.replies.sort((a: any, b: any) => 
-                    new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-                );
+                // const sortedReplies = data.data.replies.sort((a: any, b: any) => 
+                //     new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+                // );
 
                 // Check like status for each reply
                 // const repliesWithLikeStatus = await Promise.all(sortedReplies.map(async (reply: any) => {

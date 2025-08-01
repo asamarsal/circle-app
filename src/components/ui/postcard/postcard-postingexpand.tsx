@@ -1,4 +1,4 @@
-import { Avatar, AvatarImag } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 interface PostCardProps {
   avatarUrl?: string;
 }
