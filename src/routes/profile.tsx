@@ -24,7 +24,7 @@ import dumbwaysIcon from '../assets/images/icon/icon_dumbways.png';
 import postsProfiledata from '@/data/profile-data.json';
 // import postsEditprofiledata from '@/data/editprofile-data.json';
 import PostcardProfile from "@/components/ui/postcard/postcard-profile";
-import PostcardEditprofile from "@/components/ui/postcard/postcard-editprofile";
+// import PostcardEditprofile from "@/components/ui/postcard/postcard-editprofile";
 import PostcardPosting from "@/components/ui/postcard/postcard-posting";
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import Typed from 'typed.js';

@@ -241,7 +241,7 @@ const Dashboard: React.FC = () => {
     };
 
     useEffect(() => {
-        const newSocket = io('${API_URL}');
+        const newSocket = io(`${API_URL}`);
         setSocket(newSocket);
 
         // Connect > Online
@@ -393,7 +393,7 @@ const Dashboard: React.FC = () => {
     const fetchProfile = async () => {
         try {
         const token = localStorage.getItem('token');
-        const response = await fetch('${API_URL}/api/v1/profile', {
+        const response = await fetch(`${API_URL}/api/v1/profile`, {
             headers: { 
             Authorization: `Bearer ${token}` 
             }
@@ -513,7 +513,7 @@ const Dashboard: React.FC = () => {
         }
         } else {
         // Like - POST request
-        const response = await fetch('${API_URL}/api/v1/like', {
+        const response = await fetch(`${API_URL}/api/v1/like`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
