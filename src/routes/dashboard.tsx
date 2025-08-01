@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
     const [followingState, setFollowingState] = useState<{ [key: number]: boolean }>({});
     const [isEditprofileOpen, setIsEditprofileOpen] = useState(false);
     const [isPostinganOpen, setIsPostinganOpen] = useState(false);
-    const [setIsAvatarOpen] = useState(false);
+    // const [setIsAvatarOpen] = useState(false);
     // const [isLikeClicked, setisLikeClicked] = useState(false);
     // const [setisCommentClicked] = useState(false);
     const [threads, setThreads] = useState<PostCardProps[]>([]);
